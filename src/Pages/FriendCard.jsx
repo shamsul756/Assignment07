@@ -2,7 +2,7 @@ import React from "react";
 
 const FriendCard = () => {
   return (
-    <div className="min-h-screen bg-base-200 flex items-center justify-center px-4">
+    <div className="py-5 pb-9 bg-base-200 flex items-center justify-center px-4">
       
       {/* Hero Section */}
       <div className="text-center max-w-2xl mx-auto">

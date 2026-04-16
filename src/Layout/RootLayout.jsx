@@ -1,16 +1,25 @@
 import React from "react";
 import { Outlet } from "react-router";
-const RootLayout=()=>{
+import Navbar from "../Pages/Navbar";
+import Footer from "../Pages/Footer";
+import FriendCard from "../Pages/FriendCard";
+import TotalCard from "../Pages/totalCard";
+const RootLayout = () => {
 
-    return(
-     <div>
-        {/* fixed */}
-       
-        {/* dynamic */}
-        <Outlet/>
-        {/* fixed */}
-       
-     </div>
+    return (
+        <div>
+            {/* fixed */}
+            <Navbar />
+            <FriendCard />
+            <TotalCard/>
+            {/* dynamic */}
+            <Outlet />
+            
+            {/* fixed */}
+
+            <Footer />
+
+        </div>
     )
 }
 export default RootLayout;

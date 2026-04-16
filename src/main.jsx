@@ -8,6 +8,8 @@ import RootLayout from './Layout/RootLayout';
 import Navbar from './Pages/Navbar';
 import FriendCard from './Pages/FriendCard';
 import Footer from './Pages/Footer';
+import Error from './Pages/Error';
+import TotalCard from './Pages/totalCard';
 
 
 
@@ -28,9 +30,13 @@ const router = createBrowserRouter([
       {
         path: "/Footer",
         element: <Footer />
+      },
+      {
+        path: "/TotalCard",
+        element: <TotalCard/>
       }
     ],
-    errorElement: <h2>this page is not found try letter plz</h2>
+    errorElement: <Error/>
   },
 ]);
 
