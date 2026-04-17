@@ -7,7 +7,7 @@ const profilePromise = fetch("/data.json").then((res) => res.json());
 
 const COLORS = ["#22d3ee", "#a855f7", "#f59e0b", "#10b981", "#ef4444"];
 
-// ── Custom Tooltip ──
+// custom tooltip creat
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
@@ -24,7 +24,7 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-// ── Main Stats Content ──
+// Main Stats Content
 const StatsContent = () => {
   const profiles = use(profilePromise);
 
@@ -52,7 +52,7 @@ const StatsContent = () => {
       {/* Header */}
       <div className="text-center mb-10">
         <h1 className="text-4xl font-black tracking-tight mb-2">
-          📊 <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+           <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
             Stats Overview
           </span>
         </h1>
@@ -78,7 +78,7 @@ const StatsContent = () => {
       <div className="max-w-5xl mx-auto">
         <div className="card bg-base-100 shadow-xl p-6 border border-base-300">
           <h2 className="text-lg font-bold mb-2">
-            🧩 Status Breakdown
+             Status Breakdown
           </h2>
 
           <ResponsiveContainer width="100%" height={300}>

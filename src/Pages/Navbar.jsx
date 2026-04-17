@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm px-4">
-        {/* Brand */}
+     
         <div className="navbar-start">
           <span className="font-bold text-2xl bg-gradient-to-r from-cyan-700 to-yellow-900 bg-clip-text text-transparent">
             keenkeeper
@@ -34,7 +34,7 @@ const Navbar = () => {
           </NavLink>
         </div>
 
-        {/* Hamburger */}
+      
         <div className="navbar-end md:hidden">
           <button className="btn btn-ghost btn-sm" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <IoClose size={22} /> : <RxHamburgerMenu size={22} />}
@@ -42,7 +42,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* mobile view */}
       {menuOpen && (
         <div className="md:hidden bg-base-100 shadow px-4 pb-4 flex flex-col gap-2">
          

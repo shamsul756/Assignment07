@@ -5,10 +5,10 @@ const HomePage=()=>{
     return(
         <div>
        <div className="min-h-screen bg-base-200 p-6">
-      <h1 className="text-3xl font-bold text-center mb-8">👥 My Connections</h1>
+      <h1 className="text-3xl font-bold text-center mb-8">My Connections</h1>
 
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
-        {profiles.map((person) => {   // 👈 only 5
+        {profiles.map((person) => { 
           const isActive = person.days_since_contact < 5;
 
           return (
@@ -34,7 +34,7 @@ const HomePage=()=>{
                 <p className="text-xs text-base-content/50">
                   Last contact:{" "}
                   <span className="font-bold text-base-content">
-                    {person.days_since_contact}d ago
+                    {person.days_since_contact} ago
                   </span>
                 </p>
 
@@ -49,7 +49,7 @@ const HomePage=()=>{
         })}
       </div>
 
-      {/* Show More button — navigates to /TotalCard */}
+ 
       <div className="text-center mt-10">
         <Link to="/TotalCard">
           <button className="btn bg-purple-700 text-white btn-wide">

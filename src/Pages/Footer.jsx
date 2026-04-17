@@ -28,10 +28,10 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Divider */}
+     
       <hr className="border-gray-700 my-8" />
 
-      {/* Bottom Section */}
+
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-500 text-xs sm:text-[13px]">
         <p className="font-semibold text-center sm:text-left">
           © 2026 KeenKeeper. All rights reserved.

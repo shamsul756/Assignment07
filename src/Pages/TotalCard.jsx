@@ -1,12 +1,12 @@
 import React, { use, Suspense } from "react";
-import { Link } from "react-router"; // 👈 Import Link for navigation
+import { Link } from "react-router"; 
 
 const profilePromise = fetch("/data.json").then((res) => res.json());
 
 const TotalCardList = () => {
   const profiles = use(profilePromise);
 
-  // Calculate real stats from data
+
   const total = profiles.length;
   const onTrack = profiles.filter((p) => p.status === "ok").length;
   const needAttention = profiles.filter((p) => p.status === "overdue").length;
@@ -36,7 +36,7 @@ const TotalCardList = () => {
 
       {/* ── All Profile Cards ── */}
       <h1 className="text-3xl font-bold text-center mb-8">
-        📋 All Connections
+         All Connections
         <span className="ml-3 badge badge-neutral badge-lg">{total}</span>
       </h1>
 
@@ -50,7 +50,7 @@ const TotalCardList = () => {
               : "badge-warning";
 
           return (
-            /* ── WRAP THE CARD IN A LINK ── */
+            
             <Link 
               to={`/CardDetails/${person.id}`} 
               key={person.id} 
@@ -75,7 +75,7 @@ const TotalCardList = () => {
                   <p className="text-xs text-base-content/50">
                     Last contact:{" "}
                     <span className="font-bold text-base-content">
-                      {person.days_since_contact}d ago
+                      {person.days_since_contact} ago
                     </span>
                   </p>
 
@@ -89,7 +89,7 @@ const TotalCardList = () => {
 
                   <div className="card-actions w-full mt-2">
                     <button className="btn btn-primary btn-sm w-full">
-                      📬 View Details
+                       View Details
                     </button>
                   </div>
                 </div>
@@ -102,7 +102,7 @@ const TotalCardList = () => {
   );
 };
 
-// Suspense wrapper — required for use()
+
 const TotalCard = () => (
   <Suspense
     fallback={

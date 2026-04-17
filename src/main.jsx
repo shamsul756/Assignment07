@@ -4,7 +4,7 @@ import './index.css'
 import { RouterProvider } from "react-router/dom"
 import { createBrowserRouter } from "react-router"
 import RootLayout from './Layout/RootLayout'
-import Profails from './Components/Profails'   // 👈 home page = 5 cards
+import Profails from './Components/Profails'   
 import TotalCard from './Pages/totalCard'
 import Error from './Pages/Error'
 import CardDetails from './Pages/CardDetails'
@@ -18,11 +18,11 @@ const router = createBrowserRouter([
     loader: () => fetch("/data.json").then(r => r.json()),
     children: [
       {
-        index: true,          // 👈 "/" → shows Profails (5 cards)
+        index: true,        
         element: <Profails />
       },
       {
-        path: "TotalCard",    // 👈 "/TotalCard" → shows all cards
+        path: "/TotalCard",   
         element: <TotalCard />
       },
       {
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         element: <Stats />
       },
       {
-        // REMOVED the "/" here to make it a proper child path
+       
         path: "/CardDetails/:id",
         element: <CardDetails />
       },

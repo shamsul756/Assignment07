@@ -4,7 +4,7 @@ const FriendCard = () => {
   return (
     <div className="py-5 pb-9 bg-base-200 flex items-center justify-center px-4">
       
-      {/* Hero Section */}
+      {/* Hero section */}
       <div className="text-center max-w-2xl mx-auto">
         
  
