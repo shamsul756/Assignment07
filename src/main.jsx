@@ -10,6 +10,7 @@ import FriendCard from './Pages/FriendCard';
 import Footer from './Pages/Footer';
 import Error from './Pages/Error';
 import TotalCard from './Pages/totalCard';
+import Profails from './Components/Profails';
 
 
 
@@ -21,7 +22,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/Navbar",
-        element: <Navbar />
+        element: <Navbar />,
+       loader: () => fetch("/data.json").then(r => r.json()),
       },
       {
         path: "/FriendCard",
@@ -34,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/TotalCard",
         element: <TotalCard/>
+      },
+      {
+        path: "/Profails",
+        element: <Profails/>
       }
     ],
     errorElement: <Error/>

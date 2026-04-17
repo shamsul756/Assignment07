@@ -11,7 +11,7 @@ const RootLayout = () => {
             {/* fixed */}
             <Navbar />
             <FriendCard />
-            <TotalCard/>
+            
             {/* dynamic */}
             <Outlet />
             
