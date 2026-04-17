@@ -5,10 +5,12 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 import { NavLink, useLoaderData } from "react-router"; 
 
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const data = useLoaderData()
-  console.log("data from home page", data);
+
+
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm px-4">

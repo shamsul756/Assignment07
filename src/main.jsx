@@ -1,56 +1,49 @@
-
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { RouterProvider } from "react-router/dom";
-import { createBrowserRouter } from "react-router";
-import RootLayout from './Layout/RootLayout';
-import Navbar from './Pages/Navbar';
-import FriendCard from './Pages/FriendCard';
-import Footer from './Pages/Footer';
-import Error from './Pages/Error';
-import TotalCard from './Pages/totalCard';
-import Profails from './Components/Profails';
-
-
+import { RouterProvider } from "react-router/dom"
+import { createBrowserRouter } from "react-router"
+import RootLayout from './Layout/RootLayout'
+import Profails from './Components/Profails'   // 👈 home page = 5 cards
+import TotalCard from './Pages/totalCard'
+import Error from './Pages/Error'
+import CardDetails from './Pages/CardDetails'
+import Stats from './Pages/Stats'
 
 const router = createBrowserRouter([
-
   {
     path: "/",
+    id: "root",
     element: <RootLayout />,
+    loader: () => fetch("/data.json").then(r => r.json()),
     children: [
       {
-        path: "/Navbar",
-        element: <Navbar />,
-       loader: () => fetch("/data.json").then(r => r.json()),
+        index: true,          // 👈 "/" → shows Profails (5 cards)
+        element: <Profails />
       },
       {
-        path: "/FriendCard",
-        element: <FriendCard />
+        path: "TotalCard",    // 👈 "/TotalCard" → shows all cards
+        element: <TotalCard />
       },
       {
-        path: "/Footer",
-        element: <Footer />
+        path: "/Stats",
+        element: <Stats />
       },
       {
-        path: "/TotalCard",
-        element: <TotalCard/>
+        // REMOVED the "/" here to make it a proper child path
+        path: "/CardDetails/:id",
+        element: <CardDetails />
       },
-      {
-        path: "/Profails",
-        element: <Profails/>
-      }
+
     ],
-    errorElement: <Error/>
+    errorElement: <Error />
   },
-]);
-
-
-
+])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />,
+
+    <RouterProvider router={router} />
+
   </StrictMode>,
 )
