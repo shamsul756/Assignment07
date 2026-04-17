@@ -1,7 +1,6 @@
-import React, { use, Suspense, useState } from "react";
+import React, { use, Suspense } from "react";
 import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, PieChart, Pie, Cell, Legend,
+  PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer
 } from "recharts";
 
 const profilePromise = fetch("/data.json").then((res) => res.json());
@@ -29,18 +28,10 @@ const CustomTooltip = ({ active, payload, label }) => {
 const StatsContent = () => {
   const profiles = use(profilePromise);
 
-  const [activeChart, setActiveChart] = useState("bar"); // toggle state
-
   const total    = profiles.length;
   const onTrack  = profiles.filter((p) => p.status === "ok").length;
   const overdue  = profiles.filter((p) => p.status === "overdue").length;
   const due      = profiles.filter((p) => p.status === "due").length;
-
-  const contactData = profiles.map((p) => ({
-    name: p.name.split(" ")[0],
-    days: p.days_since_contact,
-    goal: p.goal,
-  }));
 
   const statusData = [
     { name: "On Track",  value: onTrack },
@@ -83,32 +74,33 @@ const StatsContent = () => {
         ))}
       </div>
 
+      {/* Pie Chart */}
       <div className="max-w-5xl mx-auto">
+        <div className="card bg-base-100 shadow-xl p-6 border border-base-300">
+          <h2 className="text-lg font-bold mb-2">
+            🧩 Status Breakdown
+          </h2>
 
-
-
-        {/* ── Pie Chart ── */}
-        {activeChart === "pie" && (
-          <div className="card bg-base-100 shadow-xl p-6 border border-base-300">
-            <h2 className="text-lg font-bold mb-2">
-              🧩 Status Breakdown
-            </h2>
-
-            <ResponsiveContainer width="100%" height={300}>
-              <PieChart>
-                <Pie data={statusData} dataKey="value" cx="50%" cy="50%" outerRadius={100}>
-                  {statusData.map((_, i) => (
-                    <Cell key={i} fill={COLORS[i]} />
-                  ))}
-                </Pie>
-                <Legend />
-                <Tooltip content={<CustomTooltip />} />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-        )}
-
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                data={statusData}
+                dataKey="value"
+                cx="50%"
+                cy="50%"
+                outerRadius={100}
+              >
+                {statusData.map((_, i) => (
+                  <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                ))}
+              </Pie>
+              <Legend />
+              <Tooltip content={<CustomTooltip />} />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
       </div>
+
     </div>
   );
 };
