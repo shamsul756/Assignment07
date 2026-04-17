@@ -12,7 +12,10 @@
 ![alt text](image-5.png)
 =====timeline part ======
 ![alt text](image-6.png)
-
+=======added graph chart ==
+![alt text](image-7.png)
+++++footer ++++++
+![alt text](image-8.png)
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
